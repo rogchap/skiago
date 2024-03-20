@@ -11,6 +11,10 @@ As such, only a small subset of bindings are required for the PDF Go project. Fe
 * Idiomatic Go API, for example: output to an `io.Writer`
 * Latest Skia release (chrome/m124)
 
+## Usage
+
+This project is currently WIP, and currently has no releases; this will change in the near future.
+
 ## Example
 
 ```go
