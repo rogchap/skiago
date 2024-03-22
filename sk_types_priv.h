@@ -63,9 +63,11 @@ DEF_CLASS_MAP(SkTypeface, sk_typeface_t, Typeface)
 DEF_CLASS_MAP(SkFontMgr, sk_fontmgr_t, FontMgr)
 DEF_CLASS_MAP(SkFontStyle, sk_fontstyle_t, FontStyle)
 DEF_CLASS_MAP(SkData, sk_data_t, Data)
+DEF_CLASS_MAP(SkImage, sk_image_t, Image)
 
 DEF_STRUCT_MAP(SkRect, sk_rect_t, Rect)
 DEF_STRUCT_MAP(SkPoint, sk_point_t, Point)
+DEF_STRUCT_MAP(SkSamplingOptions, sk_sampling_options_t, SamplingOptions)
 
 #include "include/core/SkTextBlob.h"
 static inline SkTextBlobBuilder::RunBuffer AsTextBlobBuilderRunBuffer(const sk_textblob_builder_runbuffer_t* runbuffer) {

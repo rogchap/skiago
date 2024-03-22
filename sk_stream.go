@@ -30,8 +30,12 @@ func goReaderRead(rPtr uintptr, buf unsafe.Pointer, size C.int) (C.int, bool) {
 	// woraround to supress go vet warning
 	// Ref: https://github.com/golang/go/issues/58625
 	s := (*goStream)(*(*unsafe.Pointer)(unsafe.Pointer(&rPtr)))
-	n, err := s.reader.Read(C.GoBytes(buf, size))
+	b := unsafe.Slice((*byte)(buf), size)
+	n, err := s.reader.Read(b)
 	isAtEnd := errors.Is(err, io.EOF)
+	if n < int(size) {
+		isAtEnd = true
+	}
 
 	return C.int(n), isAtEnd
 }

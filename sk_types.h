@@ -2,11 +2,13 @@
 #define sk_types_DEFINED
 
 #include <stdint.h>
+#include <stddef.h>
 
 #ifdef __cplusplus
     #define CPP_BEGIN_GUARD     extern "C" {
     #define CPP_END_GUARD       }
 #else
+    #include <stdbool.h>
     #define CPP_BEGIN_GUARD
     #define CPP_END_GUARD
 #endif
@@ -31,6 +33,7 @@ typedef struct sk_typeface_t sk_typeface_t;
 typedef struct sk_fontmgr_t sk_fontmgr_t;
 typedef struct sk_fontstyle_t sk_fontstyle_t;
 typedef struct sk_data_t sk_data_t;
+typedef struct sk_image_t sk_image_t;
 
 typedef struct {
     float   left;
@@ -63,6 +66,12 @@ typedef enum {
     ITALIC_SK_FONT_STYLE_SLANT  = 1,
     OBLIQUE_SK_FONT_STYLE_SLANT = 2,
 } sk_font_style_slant_t;
+
+typedef struct {
+    int     fMaxAniso;
+    bool    fUseCubic;
+    // TODO: add missing fields
+} sk_sampling_options_t;
 
 CPP_END_GUARD
 

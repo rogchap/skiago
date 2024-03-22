@@ -1,10 +1,13 @@
 #include "SkGoStream.h"
 #include "_cgo_export.h"
 
+#include <iostream>
+
 size_t SkGoStream::read(void* buffer, size_t size) {
     auto res = goReaderRead(fGoReader, buffer, size);
     fIsAtEnd = res.r1;
-    return res.r0;
+    // TODO: should we use the number of bytes read (res.r0) as a way to implement getPosition()?
+    return size;
 }
 
 bool SkGoWStream::write(const void* buffer, size_t size) {
