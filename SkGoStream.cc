@@ -7,6 +7,11 @@ size_t SkGoStream::read(void* buffer, size_t size) {
     auto res = goReaderRead(fGoReader, buffer, size);
     fIsAtEnd = res.r1;
     // TODO: should we use the number of bytes read (res.r0) as a way to implement getPosition()?
+
+    if (res.r2) { // hasError
+        return 0;
+    }
+
     return size;
 }
 

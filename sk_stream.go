@@ -26,18 +26,22 @@ func newGoStream(r io.Reader) *goStream {
 }
 
 //export goReaderRead
-func goReaderRead(rPtr uintptr, buf unsafe.Pointer, size C.int) (C.int, bool) {
+func goReaderRead(rPtr uintptr, buf unsafe.Pointer, size C.int) (C.int, bool, bool) {
 	// woraround to supress go vet warning
 	// Ref: https://github.com/golang/go/issues/58625
 	s := (*goStream)(*(*unsafe.Pointer)(unsafe.Pointer(&rPtr)))
 	b := unsafe.Slice((*byte)(buf), size)
 	n, err := s.reader.Read(b)
 	isAtEnd := errors.Is(err, io.EOF)
+	hasError := false
+	if err != nil && !isAtEnd {
+		hasError = true
+		// TODO: if we have a logger we could log the error
+	}
 	if n < int(size) {
 		isAtEnd = true
 	}
-
-	return C.int(n), isAtEnd
+	return C.int(n), isAtEnd, hasError
 }
 
 // testing only
