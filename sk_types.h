@@ -20,6 +20,7 @@ typedef struct sk_wstream_filestream_t sk_wstream_filestream_t;
 typedef struct sk_gostream_t sk_gostream_t;
 typedef struct sk_gowstream_t sk_gowstream_t;
 typedef struct sk_document_t sk_document_t;
+typedef struct sk_stream_t sk_stream_t;
 typedef struct sk_wstream_t sk_wstream_t;
 typedef struct sk_canvas_t sk_canvas_t;
 typedef struct sk_paint_t sk_paint_t;
@@ -29,6 +30,7 @@ typedef struct sk_font_t sk_font_t;
 typedef struct sk_typeface_t sk_typeface_t;
 typedef struct sk_fontmgr_t sk_fontmgr_t;
 typedef struct sk_fontstyle_t sk_fontstyle_t;
+typedef struct sk_data_t sk_data_t;
 
 typedef struct {
     float   left;

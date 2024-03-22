@@ -11,14 +11,14 @@ import (
 type Document struct {
 	handle *C.sk_document_t
 
-	gws *goWStream
+	w *goWStream
 }
 
 func NewDocument(w io.Writer) *Document {
 	gws := newGoWStream(w)
 	return &Document{
 		handle: C.sk_document_create_pdf_from_stream((*C.sk_wstream_t)(unsafe.Pointer(gws.handle))),
-		gws:    gws,
+		w:      gws,
 	}
 }
 
@@ -43,6 +43,6 @@ func (d *Document) Close() {
 func (d *Document) Dispose() {
 	C.sk_document_unref(d.handle)
 	d.handle = nil
-	d.gws = nil
+	d.w = nil
 	d = nil
 }
