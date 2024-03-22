@@ -5,7 +5,7 @@
 
 #include "include/core/SkTypes.h"
 
-#include "SkGoWStream.h"
+#include "SkGoStream.h"
 
 // Define a mapping between a C++ type and the C type.
 //
@@ -48,6 +48,7 @@
     DEF_MAP_DECL(SkType, sk_type, Name, struct SkType, )
 
 DEF_CLASS_MAP(SkPixmap, sk_pixmap_t, Pixmap)
+DEF_CLASS_MAP(SkGoStream, sk_gostream_t, GoStream)
 DEF_CLASS_MAP(SkGoWStream, sk_gowstream_t, GoWStream)
 DEF_CLASS_MAP(SkFILEWStream, sk_wstream_filestream_t, FileWStream)
 DEF_CLASS_MAP(SkDocument, sk_document_t, Document)

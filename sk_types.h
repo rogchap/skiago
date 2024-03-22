@@ -17,6 +17,7 @@ typedef uint32_t sk_color_t;
 
 typedef struct sk_pixmap_t sk_pixmap_t;
 typedef struct sk_wstream_filestream_t sk_wstream_filestream_t;
+typedef struct sk_gostream_t sk_gostream_t;
 typedef struct sk_gowstream_t sk_gowstream_t;
 typedef struct sk_document_t sk_document_t;
 typedef struct sk_wstream_t sk_wstream_t;
