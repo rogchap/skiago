@@ -74,6 +74,31 @@ typedef struct {
     // TODO: add missing fields
 } sk_sampling_options_t;
 
+typedef struct {
+    int16_t  fTimeZoneMinutes;
+    uint16_t fYear;
+    uint8_t  fMonth;
+    uint8_t  fDayOfWeek;
+    uint8_t  fDay;
+    uint8_t  fHour;
+    uint8_t  fMinute;
+    uint8_t  fSecond;
+} sk_pdf_datetime_t;
+
+typedef struct {
+    sk_string_t*        fTitle;
+    sk_string_t*        fAuthor;
+    sk_string_t*        fSubject;
+    sk_string_t*        fKeywords;
+    sk_string_t*        fCreator;
+    sk_string_t*        fProducer;
+    sk_pdf_datetime_t*  fCreation;
+    sk_pdf_datetime_t*  fModified;
+    float               fRasterDPI;
+    bool                fPDFA;
+    int                 fEncodingQuality;
+} sk_document_pdf_metadata_t;
+
 CPP_END_GUARD
 
 #endif

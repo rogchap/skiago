@@ -47,6 +47,9 @@
 #define DEF_STRUCT_MAP(SkType, sk_type, Name)                  \
     DEF_MAP_DECL(SkType, sk_type, Name, struct SkType, )
 
+#define DEF_MAP(SkType, sk_type, Name)                         \
+    DEF_MAP_DECL(SkType, sk_type, Name, ,)
+
 DEF_CLASS_MAP(SkPixmap, sk_pixmap_t, Pixmap)
 DEF_CLASS_MAP(SkGoStream, sk_gostream_t, GoStream)
 DEF_CLASS_MAP(SkGoWStream, sk_gowstream_t, GoWStream)
@@ -87,6 +90,39 @@ static inline sk_textblob_builder_runbuffer_t ToTextBlobBuilderRunBuffer(const S
         runbuffer.utf8text,
         runbuffer.clusters,
     };
+}
+
+#include "include/docs/SkPDFDocument.h"
+DEF_MAP(SkPDF::DateTime, sk_pdf_datetime_t, PDFDateTime)
+
+static inline SkPDF::DateTime AsDocumentOptionalTimestamp(const sk_pdf_datetime_t* datetime) {
+    if (datetime) {
+        return *AsPDFDateTime(datetime);
+    } else {
+        return SkPDF::DateTime();
+    }
+}
+static inline SkString AsDocumentOptionalString(const sk_string_t* skstring) {
+    if (skstring) {
+        return *AsString(skstring);
+    } else {
+        return SkString();
+    }
+}
+static inline SkPDF::Metadata AsDocumentPDFMetadata(const sk_document_pdf_metadata_t* metadata) {
+    SkPDF::Metadata md;
+    md.fTitle = AsDocumentOptionalString(metadata->fTitle);
+    md.fAuthor = AsDocumentOptionalString(metadata->fAuthor);
+    md.fSubject = AsDocumentOptionalString(metadata->fSubject);
+    md.fKeywords = AsDocumentOptionalString(metadata->fKeywords);
+    md.fCreator = AsDocumentOptionalString(metadata->fCreator);
+    md.fProducer = AsDocumentOptionalString(metadata->fProducer);
+    md.fCreation = AsDocumentOptionalTimestamp(metadata->fCreation);
+    md.fModified = AsDocumentOptionalTimestamp(metadata->fModified);
+    md.fRasterDPI = metadata->fRasterDPI;
+    md.fPDFA = metadata->fPDFA;
+    md.fEncodingQuality = metadata->fEncodingQuality;
+    return md;
 }
 
 #endif
