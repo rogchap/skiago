@@ -64,6 +64,7 @@ DEF_CLASS_MAP(SkFontMgr, sk_fontmgr_t, FontMgr)
 DEF_CLASS_MAP(SkFontStyle, sk_fontstyle_t, FontStyle)
 DEF_CLASS_MAP(SkData, sk_data_t, Data)
 DEF_CLASS_MAP(SkImage, sk_image_t, Image)
+DEF_CLASS_MAP(SkString, sk_string_t, String)
 
 DEF_STRUCT_MAP(SkRect, sk_rect_t, Rect)
 DEF_STRUCT_MAP(SkPoint, sk_point_t, Point)

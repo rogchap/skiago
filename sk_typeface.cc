@@ -13,6 +13,14 @@ sk_fontmgr_t* sk_fontmgr_create_mac_default(void) {
     return ToFontMgr(SkFontMgr_New_CoreText(NULL).release());
 }
 
+int sk_fontmgr_count_families(sk_fontmgr_t* fontmgr) {
+    return AsFontMgr(fontmgr)->countFamilies();
+}
+
+void sk_fontmgr_get_family_name(sk_fontmgr_t* fontmgr, int index, sk_string_t* familyName) {
+    AsFontMgr(fontmgr)->getFamilyName(index, AsString(familyName));
+}
+
 sk_typeface_t* sk_fontmgr_match_family_style(sk_fontmgr_t* fontmgr, const char* familyName, sk_fontstyle_t* style) {
     return ToTypeface(AsFontMgr(fontmgr)->matchFamilyStyle(familyName, *AsFontStyle(style)).release());
 }

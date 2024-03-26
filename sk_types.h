@@ -34,6 +34,7 @@ typedef struct sk_fontmgr_t sk_fontmgr_t;
 typedef struct sk_fontstyle_t sk_fontstyle_t;
 typedef struct sk_data_t sk_data_t;
 typedef struct sk_image_t sk_image_t;
+typedef struct sk_string_t sk_string_t;
 
 typedef struct {
     float   left;

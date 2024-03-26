@@ -9,8 +9,7 @@ func TestImage(t *testing.T) {
 	t.Parallel()
 
 	r := bytes.NewReader(pixelGif)
-	data := NewData(r)
-	image := NewEncodedImage(data)
+	image := NewImage(r)
 
 	w, h := image.Width(), image.Height()
 	if w != 1 || h != 1 {

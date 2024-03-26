@@ -55,3 +55,33 @@ const (
 	FontStyleSlantItalic
 	FontStyleSlantOblique
 )
+
+type FontStyleWeight int
+
+const (
+	FontStyleWeightHidden     FontStyleWeight = 0
+	FontStyleWeightThin                       = 100
+	FontStyleWeightExtraLight                 = 200
+	FontStyleWeightLight                      = 300
+	FontStyleWeightNormal                     = 400
+	FontStyleWeightMedium                     = 500
+	FontStyleWeightSemiBold                   = 600
+	FontStyleWeightBold                       = 700
+	FontStyleWeightExtraBold                  = 800
+	FontStyleWeightBlack                      = 900
+	FontStyleWeightExtraBlack                 = 1000
+)
+
+type FontStyleWidth int
+
+const (
+	FontStyleWidthUltraCondensed FontStyleWidth = 1
+	FontStyleWidthExtraCondensed                = 2
+	FontStyleWidthCondensed                     = 3
+	FontStyleWidthSemiCondensed                 = 4
+	FontStyleWidthNormal                        = 5
+	FontStyleWidthSemiExpanded                  = 6
+	FontStyleWidthExpanded                      = 7
+	FontStyleWidthExtraExpanded                 = 8
+	FontStyleWidthUltraExpanded                 = 9
+)
