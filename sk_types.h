@@ -35,6 +35,7 @@ typedef struct sk_fontstyle_t sk_fontstyle_t;
 typedef struct sk_data_t sk_data_t;
 typedef struct sk_image_t sk_image_t;
 typedef struct sk_string_t sk_string_t;
+typedef struct sk_path_t sk_path_t;
 
 typedef struct {
     float   left;
@@ -98,6 +99,18 @@ typedef struct {
     bool                fPDFA;
     int                 fEncodingQuality;
 } sk_document_pdf_metadata_t;
+
+typedef enum {
+    FILL_SK_PAINT_STYLE,
+    STROKE_SK_PAINT_STYLE,
+    STROKE_AND_FILL_SK_PAINT_STYLE,
+} sk_paint_style_t;
+
+typedef enum {
+    BUTT_SK_STROKE_CAP,
+    ROUND_SK_STROKE_CAP,
+    SQUARE_SK_STROKE_CAP
+} sk_stroke_cap_t;
 
 CPP_END_GUARD
 

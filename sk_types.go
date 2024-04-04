@@ -85,3 +85,11 @@ const (
 	FontStyleWidthExtraExpanded                 = 8
 	FontStyleWidthUltraExpanded                 = 9
 )
+
+type StrokeCap = C.sk_stroke_cap_t
+
+const (
+	StrokeCapButt StrokeCap = iota
+	StrokeCapRound
+	StrokeCapSquare
+)

@@ -19,6 +19,10 @@ func (c *Canvas) DrawImage(image *Image, x, y float32) {
 	C.sk_canvas_draw_image(c.handle, image.handle, C.float(x), C.float(y), nil, nil)
 }
 
+func (c *Canvas) DrawPath(path *Path, paint *Paint) {
+	C.sk_canvas_draw_path(c.handle, path.handle, paint.handle)
+}
+
 func (c *Canvas) Translate(dx, dy float32) {
 	C.sk_canvas_translate(c.handle, C.float(dx), C.float(dy))
 }

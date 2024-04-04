@@ -16,6 +16,10 @@ void sk_canvas_draw_image(sk_canvas_t* ccanvas, const sk_image_t* cimage, float 
     AsCanvas(ccanvas)->drawImage(AsImage(cimage), x, y);//, *AsSamplingOptions(sampling), AsPaint(cpaint));
 }
 
+void sk_canvas_draw_path(sk_canvas_t* ccanvas, const sk_path_t* cpath, const sk_paint_t* cpaint) {
+    AsCanvas(ccanvas)->drawPath(*AsPath(cpath), *AsPaint(cpaint));
+}
+
 void sk_canvas_translate(sk_canvas_t* ccanvas, float dx, float dy) {
     AsCanvas(ccanvas)->translate(dx, dy);
 }
